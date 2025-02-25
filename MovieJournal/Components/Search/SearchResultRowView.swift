@@ -16,26 +16,7 @@ struct SearchResultRowView: View {
     
     var body: some View {
         HStack() {
-            AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w92\(movie.posterPath ?? "")")) { phase in
-                switch phase {
-                case .empty:
-                    ProgressView()
-                case .success(let image):
-                    image
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: posterWidth, height: posterHeight)
-                        .cornerRadius(cornerRadius)
-                case .failure:
-                    Image(systemName: "film.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: posterWidth, height: posterHeight)
-                        .foregroundColor(.gray)
-                @unknown default:
-                    EmptyView()
-                }
-            }
+            MoviePoster(movie: movie, posterWidth: posterWidth, posterHeight: posterHeight, cornerRadius: cornerRadius)
             
             VStack() {
                 Text(movie.title)

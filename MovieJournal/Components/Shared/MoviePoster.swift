@@ -8,11 +8,31 @@
 import SwiftUI
 
 struct MoviePoster: View {
+    var movie: Movie
+    var posterWidth: CGFloat
+    var posterHeight: CGFloat
+    var cornerRadius: CGFloat
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w92\(movie.posterPath ?? "")")) { phase in
+            switch phase {
+            case .empty:
+                ProgressView()
+            case .success(let image):
+                image
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: posterWidth, height: posterHeight)
+                    .cornerRadius(cornerRadius)
+            case .failure:
+                Image(systemName: "film.fill")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: posterWidth, height: posterHeight)
+                    .foregroundColor(.gray)
+            @unknown default:
+                EmptyView()
+            }
+        }
     }
-}
-
-#Preview {
-    MoviePoster()
 }
