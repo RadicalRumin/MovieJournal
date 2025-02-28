@@ -17,7 +17,6 @@ class MovieStorage {
         self.context = CoreDataManager.shared.viewContext
     }
 
-    // MARK: - Save Movie
     func saveMovie(_ movie: Movie, watched: Bool = false, rating: Int16 = 0, notes: String? = nil) {
         let movieEntity = MovieEntity(context: context)
         movieEntity.id = Int64(movie.id)
@@ -41,7 +40,6 @@ class MovieStorage {
         CoreDataManager.shared.saveContext()
     }
 
-    // MARK: - Fetch Movies
     func fetchMovies() -> [MovieEntity] {
         let fetchRequest: NSFetchRequest<MovieEntity> = MovieEntity.fetchRequest()
         do {
@@ -52,7 +50,6 @@ class MovieStorage {
         }
     }
 
-    // MARK: - Update Movie
     func updateMovie(_ movieEntity: MovieEntity, watched: Bool? = nil, rating: Int16? = nil, notes: String? = nil) {
         if let watched = watched {
             movieEntity.watched = watched
@@ -66,7 +63,6 @@ class MovieStorage {
         CoreDataManager.shared.saveContext()
     }
 
-    // MARK: - Delete Movie
     func deleteMovie(_ movieEntity: MovieEntity) {
         context.delete(movieEntity)
         CoreDataManager.shared.saveContext()

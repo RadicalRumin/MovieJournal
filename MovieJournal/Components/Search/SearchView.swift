@@ -24,7 +24,9 @@ struct SearchView: View {
                     }
 
                 List(searchResults) { movie in
-                    SearchResultRowView(movie: movie)
+                    NavigationLink(destination: MovieDetailView(movie: movie, isFromSearch: true), label: {
+                        SearchResultRowView(movie: movie)
+                    })
                 }
             }
             .navigationTitle("Search Movies")
