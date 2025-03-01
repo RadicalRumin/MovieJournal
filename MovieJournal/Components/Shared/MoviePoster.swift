@@ -14,7 +14,7 @@ struct MoviePoster: View {
     var cornerRadius: CGFloat
     
     var body: some View {
-        AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w92\(movie.posterPath ?? "")")) { phase in
+        AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/original\(movie.posterPath ?? "")")) { phase in
             switch phase {
             case .empty:
                 ProgressView()

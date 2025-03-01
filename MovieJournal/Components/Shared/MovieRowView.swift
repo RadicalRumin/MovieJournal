@@ -1,5 +1,5 @@
 //
-//  SearchResultRowView.swift
+//  MovieRowView.swift
 //  MovieJournal
 //
 //  Created by Dylan on 25/02/2025.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SearchResultRowView: View {
+struct MovieRowView: View {
     var movie: Movie
     
     let posterWidth: CGFloat = 60

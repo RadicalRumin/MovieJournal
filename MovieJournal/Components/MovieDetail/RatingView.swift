@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct RatingView: View {
-    @Binding var rating: Int16 // User's rating (1-5 stars)
-    var starSize: CGFloat = 20 // Size of each star
+    @Binding var rating: Int16
+    var starSize: CGFloat = 20 
 
     var body: some View {
         HStack {

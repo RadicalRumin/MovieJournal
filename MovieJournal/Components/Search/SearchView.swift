@@ -19,13 +19,13 @@ struct SearchView: View {
                 TextField("Search for movies...", text: $searchQuery)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
-                    .onChange(of: searchQuery) { newQuery in
+                    .onChange(of: searchQuery) {oldQuery, newQuery in
                         searchMovies(query: newQuery)
                     }
 
                 List(searchResults) { movie in
-                    NavigationLink(destination: MovieDetailView(movie: movie, isFromSearch: true), label: {
-                        SearchResultRowView(movie: movie)
+                    NavigationLink(destination: MovieDetailView(movie: movie), label: {
+                        MovieRowView(movie: movie)
                     })
                 }
             }
