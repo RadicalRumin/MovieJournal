@@ -12,38 +12,35 @@ struct ReviewEditorView: View {
     @State private var isWatched: Bool = false
     @State private var userRating: Int16 = 0
     @State private var notes: String = ""
-    
-    
+
     var body: some View {
-        VStack(){
+        VStack {
             Toggle(isOn: $isWatched) {
                 Text("Watched")
                     .font(.headline)
             }
-            .onChange(of: isWatched) { newValue in
+            .onChange(of: isWatched) { oldValue, newValue in
                 if let movieEntity = MovieStorage.shared.fetchMovies().first(where: { $0.id == movie.id }) {
                     MovieStorage.shared.updateMovie(movieEntity, watched: newValue)
                 }
             }
 
-            // User rating (1-5 stars)
             RatingView(rating: $userRating, starSize: 24)
-                .onChange(of: userRating) { newValue in
+                .onChange(of: userRating) { oldValue, newValue in
                     if let movieEntity = MovieStorage.shared.fetchMovies().first(where: { $0.id == movie.id }) {
                         MovieStorage.shared.updateMovie(movieEntity, rating: newValue)
                     }
                 }
 
-            // Notes
             TextField("Add notes...", text: $notes)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-                .onChange(of: notes) { newValue in
+                .onChange(of: notes) { oldValue, newValue in
                     if let movieEntity = MovieStorage.shared.fetchMovies().first(where: { $0.id == movie.id }) {
                         MovieStorage.shared.updateMovie(movieEntity, notes: newValue)
                     }
                 }
         }
-        .onAppear() {
+        .onAppear {
             if let movieEntity = MovieStorage.shared.fetchMovies().first(where: { $0.id == movie.id }) {
                 isWatched = movieEntity.watched
                 userRating = movieEntity.rating
@@ -51,8 +48,4 @@ struct ReviewEditorView: View {
             }
         }
     }
-    
-    
 }
-
-

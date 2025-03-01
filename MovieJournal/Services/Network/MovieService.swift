@@ -15,7 +15,6 @@ class MovieService {
     private let apiKey = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlNjk2MzVjZTM3OTY0YmVkN2U2ZWU0YmY0YTE3NTIwZCIsIm5iZiI6MTc0MDA1NjczMy44NjcsInN1YiI6IjY3YjcyODlkMTFmZjAzNDA5ZWMzZmY4ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.9m4t8K2mMMQMdjFe4wDp6Hje1WlVkEZfOXKIn1Q_6WA"
     private let baseURL = "https://api.themoviedb.org/3"
     
-    // Cache directories
     private let cacheDirectory: URL
     private let searchCacheDirectory: URL
     private let movieDetailsCacheDirectory: URL
@@ -23,7 +22,6 @@ class MovieService {
 
     
     private init() {
-        // Set up cache directories
         let fileManager = FileManager.default
         guard let cacheDir = fileManager.urls(for: .cachesDirectory, in: .userDomainMask).first else {
             fatalError("Unable to access cache directory")
