@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		FCDBE8A22D7608830076816C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FCDBE8A12D7608790076816C /* README.md */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		FCDBE8122D6CAD400076816C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +31,7 @@
 		FCDBE8012D6CAD3F0076816C /* MovieJournal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieJournal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCDBE8112D6CAD400076816C /* MovieJournalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieJournalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCDBE81B2D6CAD410076816C /* MovieJournalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieJournalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCDBE8A12D7608790076816C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -75,6 +80,7 @@
 		FCDBE7F82D6CAD3F0076816C = {
 			isa = PBXGroup;
 			children = (
+				FCDBE8A12D7608790076816C /* README.md */,
 				FCDBE8032D6CAD3F0076816C /* MovieJournal */,
 				FCDBE8142D6CAD400076816C /* MovieJournalTests */,
 				FCDBE81E2D6CAD410076816C /* MovieJournalUITests */,
@@ -212,6 +218,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCDBE8A22D7608830076816C /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
